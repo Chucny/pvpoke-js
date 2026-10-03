@@ -1,0 +1,168 @@
+[
+	{
+		"title": "P!P Championship Series",
+		"cup": "championshipseries",
+		"cp": 1500,
+		"meta": "championshipseries",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"hideRankings": true
+	},
+	{
+		"title": "Mega Great League",
+		"cup": "mega",
+		"cp": 1500,
+		"meta": "megagreat",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"rules": [
+			"Pokemon must be at or below 1,500 CP to enter.",
+			"Mega Evolutions are eligible."
+		]
+	},
+	{
+		"title": "Mega Ultra League",
+		"cup": "mega",
+		"cp": 2500,
+		"meta": "megaultra",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"rules": [
+			"Pokemon must be at or below 2,500 CP to enter.",
+			"Mega Evolutions are eligible."
+		]
+	},
+	{
+		"title": "Mega Master League",
+		"cup": "mega",
+		"cp": 10000,
+		"meta": "mega",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"rules": [
+			"No CP limit.",
+			"Mega Evolutions are eligible."
+		]
+	},
+	{
+		"title": "Mega Color Cup",
+		"cup": "colormega",
+		"cp": 1500,
+		"meta": "colormega",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"rules": [
+			"Pokemon must be at or below 1,500 CP to enter.",
+			"Mega-Evolved Pokémon are eligible.",
+			"Only Grass-, Fire-, Water-, Electric-type Pokémon are eligible."
+		]
+	},
+	{
+		"title": "LAIC 2027 Championship Series Cup",
+		"cup": "laic2027",
+		"cp": 1500,
+		"meta": "laic2027",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true,
+		"rules": [
+			"Pokemon must be at or below 1,500 CP to enter.",
+			"Allowed Types: All besides those explicitly prohibited.",
+			"Allowed Categories: Shadow Pokemon, Mega Evolution and Primal Reversion Pokemon. All Mega Evolution Pokémon are eligible even if they would otherwise be prohibited by a species, typing, or category.",
+			"Prohibited Types: Dark, Fairy, Fire, Steel.",
+			"Prohibited Categories: Legendary, Mythical, Ultra Beasts.",
+			"Prohibited Pokemon: Altaria, Annihilape, Araquanid, Chansey, Clodsire, Corsola (Galarian), Dusclops, Furret, Jellicent, Kingdra, Medicham, Oranguru, Snorlax, Wobbuffet, Mega Sableye."
+		]
+	},
+	{
+		"title": "Battle Frontier (Spectral)",
+		"cup": "spectral",
+		"cp": 1500,
+		"meta": "spectral",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true
+	},
+	{
+		"title": "Battle Frontier (Cauldron)",
+		"cup": "cauldron",
+		"cp": 2500,
+		"meta": "cauldron",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true
+	},
+	{
+		"title": "Battle Frontier (Master)",
+		"cup": "battlefrontiermaster",
+		"cp": 10000,
+		"meta": "battlefrontiermaster",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true
+	},
+	{
+		"title": "Devon Trail Cup",
+		"cup": "trail",
+		"cp": 1500,
+		"meta": "trail",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true
+	},
+	{
+		"title": "Gymbreakers Invitational Season 7",
+		"cup": "gymbreakers",
+		"cp": 1500,
+		"meta": "gymbreakers",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": true
+	},
+	{
+		"title": "Master Premier Cup",
+		"cup": "premier",
+		"cp": 10000,
+		"meta": "premiermaster",
+		"showCup": true,
+		"showFormat": false,
+		"showMeta": true,
+		"hideRankings": true,
+		"rules": [
+			"No CP limit.",
+			"Legendary Pokémon, Mythical Pokémon, and Ultra Beasts are not eligible."
+		]
+	},
+	{
+		"title": "Little Cup",
+		"cup": "little",
+		"cp": 500,
+		"meta": "little",
+		"showCup": false,
+		"showFormat": false,
+		"showMeta": false
+	},
+	{
+		"title": "Catch Cup",
+		"cup": "catch",
+		"cp": 1500,
+		"meta": "great",
+		"showCup": false,
+		"showFormat": false,
+		"showMeta": false
+	},
+	{
+		"title": "Custom",
+		"cup": "custom",
+		"cp": 1500,
+		"meta": "great",
+		"showCup": true,
+		"showFormat": true,
+		"showMeta": false
+	}
+]

@@ -1,0 +1,15 @@
+{
+	"name": "retro",
+	"title": "Retro Cup",
+	"include": [],
+	"exclude": [{
+		"filterType": "type",
+		"values": ["dark", "fairy", "steel"]
+	}, {
+		"filterType": "tag",
+		"values": ["mega"]
+	}],
+	"excludeLowPokemon": true,
+	"partySize": 3,
+	"presetOnly": true
+}

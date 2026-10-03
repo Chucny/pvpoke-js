@@ -1,0 +1,7 @@
+# Generated per-deploy config.php used to live here; it moved to legacy/ with
+# the rest of the PHP and is no longer produced.
+src/articles/article-assets
+src-deploy/
+
+# PHP sources are not part of this repo.
+*.php
