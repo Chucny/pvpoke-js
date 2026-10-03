@@ -632,7 +632,7 @@ var InterfaceMaster = (function () {
 
 				gtag('event', 'page_view', {
 				  page_title: speciesId + ' ' + document.title,
-				  page_location: (host+rankStr),
+				  page_location: (url(rankStr)),
 				  pageview_type: 'virtual'
 				});
 
@@ -1152,7 +1152,7 @@ var InterfaceMaster = (function () {
 					opponent.initialize(battle.getCP(), "gamemaster");
 					opponent.selectRecommendedMoveset(category);
 
-					var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokemon.aliasId+"/"+opponent.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/"+opponent.generateURLMoveStr()+"/";
+					var battleLink = url("battle/"+battle.getCP(true)+"/"+pokemon.aliasId+"/"+opponent.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/"+opponent.generateURLMoveStr()+"/");
 
 					// Append energy settings
 					battleLink += pokemon.stats.hp + "-" + opponent.stats.hp + "/";
@@ -1194,7 +1194,7 @@ var InterfaceMaster = (function () {
 					var opponent = new Pokemon(c.opponent, 1, battle);
 					opponent.initialize(battle.getCP(), "gamemaster");
 					opponent.selectRecommendedMoveset(category);
-					var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokemon.aliasId+"/"+opponent.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/"+opponent.generateURLMoveStr()+"/";
+					var battleLink = url("battle/"+battle.getCP(true)+"/"+pokemon.aliasId+"/"+opponent.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/"+opponent.generateURLMoveStr()+"/");
 
 					// Append energy settings
 					battleLink += pokemon.stats.hp + "-" + opponent.stats.hp + "/";
@@ -1287,13 +1287,13 @@ var InterfaceMaster = (function () {
 					cup = "all";
 				}
 
-				var link = host + "rankings/"+cup+"/"+cp+"/"+category+"/"+pokemon.aliasId+"/";
+				var link = url("rankings/"+cup+"/"+cp+"/"+category+"/"+pokemon.aliasId+"/");
 
 				$details.find(".share-link input").val(link);
 
 				// Add multi-battle link
 				if(context != "custom"){
-					var multiBattleLink = host+"battle/multi/"+battle.getCP(true)+"/"+cup+"/"+pokemon.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/2-1/";
+					var multiBattleLink = url("battle/multi/"+battle.getCP(true)+"/"+cup+"/"+pokemon.aliasId+"/"+scenario.shields[0]+""+scenario.shields[1]+"/"+pokeMoveStr+"/2-1/");
 
 					// Append energy settings
 					multiBattleLink += pokemon.stats.hp + "/";
@@ -1312,7 +1312,7 @@ var InterfaceMaster = (function () {
 
 					// CMP chart link
 					
-					let cmpChartLink = host+"attack-cmp-chart/"+cup+"/"+battle.getCP()+"/"+pokemon.aliasId+"/";
+					let cmpChartLink = url("attack-cmp-chart/"+cup+"/"+battle.getCP()+"/"+pokemon.aliasId+"/");
 					$details.find(".ranking-cmp-link").html(pokemon.speciesName + " CMP Chart");
 					$details.find(".ranking-cmp-link").attr("href", cmpChartLink);
 				} else{
@@ -1439,7 +1439,7 @@ var InterfaceMaster = (function () {
 
 								// Build team builder link
 
-								var teamURL = host + "team-builder/" + battle.getCup().name + "/" + battle.getCP(true) + "/" + pokemon.speciesId + "-m-" + pokeMoveStr + "," + partnerPokemon[i].speciesId + "-m-" + partnerPokemon[i].generateURLMoveStr();
+								var teamURL = url("team-builder/" + battle.getCup().name + "/" + battle.getCP(true) + "/" + pokemon.speciesId + "-m-" + pokeMoveStr + "," + partnerPokemon[i].speciesId + "-m-" + partnerPokemon[i].generateURLMoveStr());
 
 								$details.find(".partner-pokemon .list").append("<a href=\""+teamURL+"\" target=\"blank\" class=\""+partnerPokemon[i].types[0]+"\" data=\""+partnerPokemon[i].speciesId+"\">"+partnerPokemon[i].speciesName+" &rarr;</a>");
 								usedPartnerSpecies.push(partnerPokemon[i].dex);

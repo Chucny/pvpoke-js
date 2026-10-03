@@ -103,22 +103,9 @@ function Pokebox(element, selector, selectMode, b){
 			if(settings.pokeboxLastDateTime < lastDateTime){
 				settings.pokeboxLastDateTime = lastDateTime;
 
-				$.ajax({
+				window.saveSettings(settings);
 
-					url : host+'data/settingsCookie.php',
-					type : 'POST',
-					data : settings,
-					dataType:'json',
-					success : function(data) {
-						console.log("Datetime " + settings.pokeboxLastDateTime + " saved");
-
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-						console.log(error);
-					}
-				});
+				console.log("Datetime " + settings.pokeboxLastDateTime + " saved");
 			};
 
 		} else{
@@ -338,33 +325,14 @@ function Pokebox(element, selector, selectMode, b){
 
 		var pokeboxId = parseInt($(".modal .pokebox-id").val());
 
-		$.ajax({
+		settings.pokeboxId = pokeboxId;
 
-			url : host+'data/settingsCookie.php',
-			type : 'POST',
-			data : {
-				'defaultIVs' : settings.defaultIVs,
-				'animateTimeline' : settings.animateTimeline,
-				'theme': settings.theme,
-				'matrixDirection': settings.matrixDirection,
-				'gamemaster': settings.gamemaster,
-				'pokeboxId': pokeboxId
-			},
-			dataType:'json',
-			success : function(data) {
-				settings.pokeboxId = pokeboxId;
+		window.saveSettings(settings);
 
-				$(".modal .pokebox-off").hide();
-				$(".modal .pokebox-on").show();
+		$(".modal .pokebox-off").hide();
+		$(".modal .pokebox-on").show();
 
-				self.loadPokebox(true);
-			},
-			error : function(request,error)
-			{
-				console.log("Request: "+JSON.stringify(request));
-				console.log(error);
-			}
-		});
+		self.loadPokebox(true);
 	}
 
 	function selectAll(e){

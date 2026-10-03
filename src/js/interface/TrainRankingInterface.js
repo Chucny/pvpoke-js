@@ -131,7 +131,7 @@ var InterfaceMaster = (function () {
 						$row.find(".usage").html(usage);
 					}
 
-					$row.find(".link a").attr("href", host+"rankings/" + battle.getCup().name + "/" + battle.getCP() + "/overall/" + pokemon.speciesId + "/");
+					$row.find(".link a").attr("href", url("rankings/" + battle.getCup().name + "/" + battle.getCP() + "/overall/" + pokemon.speciesId + "/"));
 
 					if(r.games < 250){
 						$row.find(".usage").addClass("low-volume");
@@ -155,7 +155,7 @@ var InterfaceMaster = (function () {
 					$row.removeClass("hide");
 
 					var cupName = battle.getCup().name;
-					var teamURL = host + "team-builder/" + cupName + "/" + battle.getCP(true) + "/";
+					var teamURL = url("team-builder/" + cupName + "/" + battle.getCP(true) + "/");
 					var teamStr = '';
 
 					for(var n = 0; n < arr.length; n++){

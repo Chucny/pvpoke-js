@@ -1,0 +1,70 @@
+
+<!--#include header-->
+
+
+
+<h1>Ranker</h1>
+<div class="section white">
+	<select class="format-select">
+	<option value="1500" cup="all" meta-group="great">Great League</option>
+	<option value="2500" cup="all" meta-group="ultra">Ultra League</option>
+	<option value="10000" cup="all" meta-group="master">Master League</option>
+</select>
+
+<script>
+	// Dynamically add current formats to the format dropdown
+	function updateFormatSelect(formats, interfaceMaster){
+		for(var i = 0; i < formats.length; i++){
+			var showFormat = formats[i].showFormat;
+
+			if(interfaceMaster.context == "rankings" && formats[i].hideRankings){
+				showFormat = false;
+			}
+
+			if(interfaceMaster.context == "attackchart" && 
+				(formats[i].hideRankings || formats[i].cup == "custom")){
+				showFormat = false;
+			}
+			
+
+			if(showFormat){
+				$format = $("<option>"+formats[i].title+"</option>");
+				$format.attr("value", formats[i].cp);
+				$format.attr("cup", formats[i].cup);
+				$format.attr("meta-group", formats[i].meta);
+
+				$(".format-select").append($format);
+			}
+		}
+	}
+
+</script>
+
+	<a style="margin-left: 30px;" class="rankersandbox-link" href="/rankersandbox.html">Rankersandbox &rarr;</a>
+
+	<div class="check exclude-low-pokemon on"><span></span>Exclude Low-Performing Targets</div>
+	<p></p>
+	<p class="small">This setting excludes Pokemon which have a league overall score of less than 70 from the simulation targets. (They are still included in the rankings, but matchups against them are skipped.) This reduces the time it takes to generate results. Recommend disabling for small metas and first passes on large metas.</p>
+
+	<p>Select your format above and generate rankings. These will be saved as JSON to the '/data/rankings/' directory. This process may take a few minutes. Follow the instructions below to set up rankings for a new cup, or open the developer console for more info.</p>
+
+	<button class="button simulate">Simulate</button>
+
+	<div class="output"></div>
+</div>
+
+<script src="/js/battle/DamageCalculator.js"></script>
+<script src="/js/battle/actions/ActionLogic.js"></script>
+<script src="/js/battle/timeline/TimelineEvent.js"></script>
+<script src="/js/battle/timeline/TimelineAction.js"></script>
+<script src="/js/training/DecisionOption.js"></script>
+<script src="/js/battle/Battle.js"></script>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/RankerInterface.js"></script>
+<script src="/js/battle/rankers/Ranker.js"></script>
+<script src="/js/RankerMain.js"></script>
+
+
+<!--#include footer-->

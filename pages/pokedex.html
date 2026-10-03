@@ -1,0 +1,49 @@
+<!-- title: Pokedex -->
+<!-- description: Explore Pokemon stats for Pokemon GO PvP. -->
+
+<!--#include header-->
+
+
+
+<h1>Pokedex</h1>
+<div class="section moves white">
+	
+	<select class="league-select">
+		<option value="500" level-cap="50">Little League</option>
+		<option value="1500" level-cap="50" selected>Great League</option>
+		<option value="2500" level-cap="50">Ultra League</option>
+		<option value="10000" level-cap="50">Master League</option>
+	</select>
+
+
+
+
+
+
+	<p>Sort or filter the moves below, or experiment with a custom moveset.</p>
+
+	<h2 class="loading">Loading data...</h2>
+	<div class="poke-table-container">
+		<input class="poke-search" context="poke-search" type="text" placeholder="Search Move or Type" />
+		<table class="sortable-table stats-table pokemon" cellpadding="0" cellspacing="0"></table>
+	</div>
+</div>
+
+
+<!--test 2-->
+<!-- Pokemon.js calls DamageCalculator while it loads, so it has to come first. -->
+<script src="/js/battle/DamageCalculator.js"></script>
+<script src="/js/battle/actions/ActionLogic.js"></script>
+<script src="/js/battle/timeline/TimelineEvent.js"></script>
+<script src="/js/battle/timeline/TimelineAction.js"></script>
+<script src="/js/training/DecisionOption.js"></script>
+<script src="/js/battle/Battle.js"></script>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/SortableTable.js"></script>
+<script src="/js/interface/PokedexInterface.js"></script>
+<script src="/js/RankingMain.js"></script>
+
+
+<!--#include footer-->

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+
+<link rel="canonical" href="{{CANONICAL}}" />
+
+<!--OG tags for social-->
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:image" content="https://pvpoke.com/img/og.jpg" />
+
+<meta name="apple-mobile-web-app-capable">
+<meta name="mobile-web-app-capable">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="manifest" href="{{ROOT}}data/manifest.json?v=3">
+
+<link id="favicon" rel="icon" href="{{ROOT}}img/themes/sunflower/favicon.png">
+
+<link rel="stylesheet" type="text/css" href="{{ROOT}}css/style.css?v=235">
+{{EXTRA_HEAD}}
+
+<script src="{{ROOT}}js/libs/jquery-3.3.1.min.js"></script>
+<script src="{{ROOT}}js/Router.js?v={{VERSION}}"></script>
+<script src="{{ROOT}}js/Boot.js?v={{VERSION}}"></script>
+<script src="{{ROOT}}js/interface/RSSReader.js?v={{VERSION}}"></script>
+<script src="{{ROOT}}js/BootPost.js?v={{VERSION}}"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<div class="header-wrap">
+			<a href="{{ROOT}}index.html"><img src="{{ROOT}}img/themes/sunflower/header.png" title="PvPoke.com" /></a>
+
+			<div class="hamburger mobile">
+				<!--Because I'm too lazy to make a graphic-->
+				<div class="meat"></div>
+				<div class="meat"></div>
+				<div class="meat"></div>
+			</div>
+			<div class="menu">
+				<div class="menu-content">
+					<div class="parent-menu">
+						<a class="icon-battle{{SEL_BATTLE}}" href="{{ROOT}}battle.html">
+							Battle<span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="{{ROOT}}battle.html">Single Battle</a>
+								<a class="nav-ultra" href="{{ROOT}}battle.html?mode=multi">Multi Battle</a>
+								<a class="nav-master" href="{{ROOT}}battle.html?mode=matrix">Matrix Battle</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu">
+						<a class="icon-rankings{{SEL_RANKINGS}}" href="{{ROOT}}rankings.html">
+							Rankings <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="{{ROOT}}rankings.html?cp=1500&cat=overall">Great League</a>
+								<a class="nav-ultra" href="{{ROOT}}rankings.html?cp=2500&cat=overall">Ultra League</a>
+								<a class="nav-master" href="{{ROOT}}rankings.html?cp=10000&cat=overall">Master League</a>
+								<a href="{{ROOT}}custom-rankings.html">Custom Rankings</a>
+							</div>
+						</div>
+					</div>
+					<a class="icon-team{{SEL_TEAM}}" href="{{ROOT}}team-builder.html">Team Builder</a>
+					<div class="parent-menu">
+						<a class="icon-train{{SEL_TRAIN}}" href="{{ROOT}}train/index.html">
+							Train <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="{{ROOT}}train/analysis.html">Top Performers</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu more-parent-menu">
+						<a class="more desktop" href="#">
+							<div class="hamburger desktop">
+								<!--Because I'm too lazy to make a graphic-->
+								<div class="meat"></div>
+								<div class="meat"></div>
+								<div class="meat"></div>
+							</div>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="{{ROOT}}attack-cmp-chart.html">CMP Chart</a>
+								<a href="{{ROOT}}moves.html">Moves</a>
+								<a href="{{ROOT}}articles/index.html">Articles</a>
+								<a href="{{ROOT}}settings.html">Settings</a>
+								<a class="icon-heart" href="{{ROOT}}contact.html">Contact</a>
+								<a class="tera" href="{{ROOT}}tera/index.html">Tera Raid Counters</a>
+								<div class="latest-section mobile">
+									<h4>Latest <a href="{{ROOT}}index.html#news"></a></h4>
+									<a class="latest-link" href="#"></a>
+									<div class="date"></div>
+								</div>
+							</div>
+						</div>
+						<div class="safe-mouse-space"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="main-wrap">
+		<div id="main">
+			<div class="custom-gm-banner" id="custom-gm-banner" style="display:none">
+				A <a href="{{ROOT}}gm-editor/index.html">custom gamemaster</a> is active. Simulations and content may change.
+			</div>

@@ -81,7 +81,7 @@ var InterfaceMaster = (function () {
 				loadOverrides();
 				gm.loadRankingData(self, "overall", cp, cup);
 
-				$("a.rankersandbox-link").attr("href", webRoot+"rankersandbox.php?cup="+cup+"&cp="+cp);
+				$("a.rankersandbox-link").attr("href", webRoot+"rankersandbox.html?cup="+cup+"&cp="+cp);
 				$("a.rankings-link").attr("href", webRoot+"rankings/"+cup+"/"+cp+"/overall/");
 
 				if(battle.getCup().excludeLowPokemon){

@@ -766,8 +766,6 @@ var BattlerMaster = (function () {
 				var teamStrs = [];
 				var teamScores = [];
 
-				var pokeObjs = [];
-				var teamObjs = [];
 				var cup = battle.getCup();
 				var eligiblePokemon = gm.generateFilteredPokemonList(battle, cup.include, cup.exclude);
 				var teamsValid = true;
@@ -874,13 +872,6 @@ var BattlerMaster = (function () {
 					  'player_type': playerType,
 					});
 
-					teamObjs.push({
-						teamStr: teamStrs[i],
-						format: battle.getCup().name + " " + battle.getCP(),
-						playerType: playerType,
-						teamScore: battleRating
-					});
-
 					console.log(teamStrs[i]);
 
 					// Organize rosteer to report teams of 6
@@ -957,17 +948,6 @@ var BattlerMaster = (function () {
 							}
 						}
 
-						// Add to list of individual Pokemon db objects
-						pokeObjs.push({
-							pokemonId: pokeStr,
-							format: battle.getCup().name + " " + battle.getCP(),
-							teamPosition: n+1,
-							playerType: playerType,
-							teamScore: battleRating,
-							individualScore: pokemon.battleStats.score,
-							shields: pokemon.battleStats.shieldsUsed
-						});
-
 						gtag('event', 'Training Pokemon', {
 						  'summary' : battleSummaryStr,
 						  'pokemon' : pokeStr,
@@ -985,27 +965,14 @@ var BattlerMaster = (function () {
 				if(teamSelectMethod == "custom" || teamSelectMethod == "manual" || settings.gamemaster != "gamemaster"){
 					teamsValid = false;
 				}
-				
+
 				console.log("teams valid: " + teamsValid);
 
-				if(teamsValid && players[1].getAI().getLevel()+1 >= 3){
-					$.ajax({
-				        url: "../data/training/postTraining.php",
-				        method: "POST",
-				        data: {
-				            pokemon: pokeObjs,
-							teams: teamObjs
-				        },
-				        success: function(response) {
-							if(! response.result && response.error){
-								console.error(response.error);
-							}
-				        },
-				        error: function(error) {
-				            console.log(error);
-				        }
-				    });
-				}
+				// This used to POST the full battle log to
+				// data/training/postTraining.php so the author could aggregate
+				// results across all players. A static site has nowhere to send
+				// it, and the gtag() calls above already report the same events
+				// to whatever analytics the visitor has configured.
 			}
 
 			// Handler for the charge up interval

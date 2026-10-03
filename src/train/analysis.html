@@ -1,0 +1,443 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Great League Top Performers</title>
+<meta name="description" content="Search the top Pokemon, top movesets, and top teams teams measured from the site's simulated Training Battles." />
+
+<link rel="canonical" href="https://pvpoke.com/train/analysis.html" />
+
+<!--OG tags for social-->
+<meta property="og:title" content="Great League Top Performers" />
+<meta property="og:description" content="Search the top Pokemon, top movesets, and top teams teams measured from the site's simulated Training Battles." />
+<meta property="og:image" content="https://pvpoke.com/img/og.jpg" />
+
+<meta name="apple-mobile-web-app-capable">
+<meta name="mobile-web-app-capable">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="manifest" href="/data/manifest.json?v=3">
+
+<link id="favicon" rel="icon" href="/img/themes/sunflower/favicon.png">
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=235">
+<link rel="stylesheet" type="text/css" href="/css/train.css?v=22">
+
+<script src="/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/js/Router.js?v=1.40.2.3"></script>
+<script src="/js/Boot.js?v=1.40.2.3"></script>
+<script src="/js/interface/RSSReader.js?v=1.40.2.3"></script>
+<script src="/js/BootPost.js?v=1.40.2.3"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<div class="header-wrap">
+			<a href="/index.html"><img src="/img/themes/sunflower/header.png" title="PvPoke.com" /></a>
+
+			<div class="hamburger mobile">
+				<!--Because I'm too lazy to make a graphic-->
+				<div class="meat"></div>
+				<div class="meat"></div>
+				<div class="meat"></div>
+			</div>
+			<div class="menu">
+				<div class="menu-content">
+					<div class="parent-menu">
+						<a class="icon-battle" href="/battle.html">
+							Battle<span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/battle.html">Single Battle</a>
+								<a class="nav-ultra" href="/battle.html?mode=multi">Multi Battle</a>
+								<a class="nav-master" href="/battle.html?mode=matrix">Matrix Battle</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu">
+						<a class="icon-rankings" href="/rankings.html">
+							Rankings <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/rankings.html?cp=1500&cat=overall">Great League</a>
+								<a class="nav-ultra" href="/rankings.html?cp=2500&cat=overall">Ultra League</a>
+								<a class="nav-master" href="/rankings.html?cp=10000&cat=overall">Master League</a>
+								<a href="/custom-rankings.html">Custom Rankings</a>
+							</div>
+						</div>
+					</div>
+					<a class="icon-team" href="/team-builder.html">Team Builder</a>
+					<div class="parent-menu">
+						<a class="icon-train class-active" href="/train/index.html">
+							Train <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/train/analysis.html">Top Performers</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu more-parent-menu">
+						<a class="more desktop" href="#">
+							<div class="hamburger desktop">
+								<!--Because I'm too lazy to make a graphic-->
+								<div class="meat"></div>
+								<div class="meat"></div>
+								<div class="meat"></div>
+							</div>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/attack-cmp-chart.html">CMP Chart</a>
+								<a href="/moves.html">Moves</a>
+								<a href="/articles/index.html">Articles</a>
+								<a href="/settings.html">Settings</a>
+								<a class="icon-heart" href="/contact.html">Contact</a>
+								<a class="tera" href="/tera/index.html">Tera Raid Counters</a>
+								<div class="latest-section mobile">
+									<h4>Latest <a href="/index.html#news"></a></h4>
+									<a class="latest-link" href="#"></a>
+									<div class="date"></div>
+								</div>
+							</div>
+						</div>
+						<div class="safe-mouse-space"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="main-wrap">
+		<div id="main">
+			<div class="custom-gm-banner" id="custom-gm-banner" style="display:none">
+				A <a href="/gm-editor/index.html">custom gamemaster</a> is active. Simulations and content may change.
+			</div>
+
+
+<h1>Top Performers</h1>
+<div class="section analysis-container white">
+
+	<select class="format-select">
+		<option value="1500" cup="mega" level-cap="50">Great League</option>
+		<option value="2500" cup="mega" level-cap="50">Ultra League</option>
+		<option value="10000" cup="all" level-cap="50">Master League</option>
+	</select>
+
+	<div class="ranking-categories mode-select">
+		<a href="/train/index.html">Train</a>
+		<a class="selected" href="/train/analysis.html">Top Performers</a>
+	</div>
+
+	<div class="date-updated">Last updated</div>
+
+	<h3>Teams</h3>
+
+	<p class="description">Below are the top performing teams from PvPoke.com Training Battles. Data is sampled from both players and bots in the Elite and Champion difficulties.</p>
+
+	<div class="poke-search-container">
+		<input class="poke-search" target="teams" type="text" placeholder="Search Pokemon" />
+		<a href="#" class="search-info">i</a>
+	</div>
+
+	<div class="table-container">
+		<table class="train-table teams" cellspacing="0">
+			<thead>
+				<tr>
+					<td class="poke-name"><a href="#" data="lead">Team (Lead First)</a></td>
+					<td class="poke-name"></td>
+					<td class="poke-name"></td>
+					<td></td>
+					<td><a href="#" class="selected" data="team">Team Rating</a></td>
+					<td><a href="#" data="usage">Usage</div></td>
+				</tr>
+				<!--Row html to clone-->
+				<tr class="hide">
+					<td class="poke-name">
+						<div class="team-member">
+							<div class="sprite-container pokemon">
+								<div class="main-sprite"></div>
+								<div class="secondary-sprite"></div>
+							</div>
+							<div class="name-container">
+								<div class="name">Azumarill</div>
+								<div class="moves">Bubble, Ice Beam, Hydro Pump</div>
+							</div>
+						</div>
+					</td>
+					<td class="poke-name">
+						<div class="team-member">
+							<div class="sprite-container pokemon">
+								<div class="main-sprite"></div>
+								<div class="secondary-sprite"></div>
+							</div>
+							<div class="name-container">
+								<div class="name">Azumarill</div>
+								<div class="moves">Bubble, Ice Beam, Hydro Pump</div>
+							</div>
+						</div>
+					</td>
+					<td class="poke-name">
+						<div class="team-member">
+							<div class="sprite-container pokemon">
+								<div class="main-sprite"></div>
+								<div class="secondary-sprite"></div>
+							</div>
+							<div class="name-container">
+								<div class="name">Azumarill</div>
+								<div class="moves">Bubble, Ice Beam, Hydro Pump</div>
+							</div>
+						</div>
+					</td>
+					<td class="link"><a href="#" target="_blank"></a></td>
+					<td class="team-score"><div class="rating"></div></td>
+					<td class="usage">1,024</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<a href="#" class="button download-csv teams">Export to CSV</a>
+
+	<p class="column-description description"><b>Team Rating - </b> Similar to the Battle Rating metric in battle simulations, the Team Rating metric is a number between 0 and 1000 that measures the quality of wins and losses depending on how much HP remains on the opposing team. An average team rating above 500 means this team wins more often. An average team rating below 500 indicates underperformance.</p>
+
+	<p class="column-description"><b>Usage - </b> Usage by players and bots. A large sample size will yield higher confidence in the data. A <span class="low-volume">small sample size</span> may be the result of an individual player, and consequentially yield lower confidence in the data. The data is filtered by a minimum usage threshold.</p>
+
+	<h3>Pokemon</h3>
+
+	<p class="description">Below are the top performing individual Pokemon from PvPoke.com Training Battles. Data is sampled from both players and bots in the Elite and Champion difficulties. If a Pokemon or moveset isn't listed, it may not have a sufficient data.</p>
+
+	<div class="poke-search-container">
+		<input class="poke-search" target="performers" type="text" placeholder="Search Pokemon" />
+		<a href="#" class="search-info">i</a>
+	</div>
+
+	<h2 class="loading">Loading data...</h2>
+
+	<div class="table-container">
+		<table class="train-table performers" cellspacing="0">
+			<thead>
+				<tr>
+					<td><a href="#" data="name">Pokemon</a></td>
+					<td></td>
+					<td><a href="#" class="selected" data="team">Team Rating</a></td>
+					<td><a href="#" data="individual">Individual<br>Rating</a></td>
+					<td><a href="#" data="usage">Usage</a></td>
+				</tr>
+				<!--Row html to clone-->
+				<tr class="hide">
+					<td class="poke-name">
+						<div class="sprite-container pokemon">
+							<div class="main-sprite"></div>
+							<div class="secondary-sprite"></div>
+						</div>
+						<div class="name-container">
+							<div class="name">Azumarill</div>
+							<div class="moves">Bubble, Ice Beam, Hydro Pump</div>
+						</div>
+					</td>
+					<td class="link"><a href="#" target="_blank"></a></td>
+					<td class="team-score"><div class="rating"></div></td>
+					<td class="individual-score">129.3%</td>
+					<td class="usage">1,024</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<a href="#" class="button download-csv performers">Export to CSV</a>
+
+	<p class="column-description"><b>Team Rating - </b> Similar to the Battle Rating metric in battle simulations, the Team Rating metric is a number between 0 and 1000 that measures the quality of wins and losses depending on how much HP remains on the opposing team. An average team rating above 500 means teams including that Pokemon win more often. An average team rating below 500 indicates underperformance, and that teams including that Pokemon may struggle.</p>
+
+	<p class="column-description"><b>Individual Rating - </b> The individual rating metric measures the damage output of a Pokemon in battle. 100% equals 1 Pokemon worth of damage. This metric also includes shields drawn by the Pokemon: 1 shield is treated as 50% of a Pokemon in Great League, and 40% of a Pokemon in Ultra and Master League. Pokemon with high average individual rating have strong damage output and shield pressure. However, high individual rating doesn't always correlate to success on a team.</p>
+
+	<p class="column-description"><b>Usage - </b> Usage by players and bots on teams of 3. A large sample size will yield higher confidence in the data. A <span class="low-volume">small sample size</span> may be the result of an individual player, and consequentially yield lower confidence in the data. The data is filtered by a minimum usage threshold.</p>
+
+
+</div>
+
+<div class="section about white">
+	<a class="toggle" href="#">About Training Analysis <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content">
+		<p>This page offers another way to analyze the PvP meta to find Pokemon and teams that may work for you. Knowing what the data represents will help you make the most of it.</p>
+		<h2>Where does this data come from?</h2>
+		<p>Data is sampled from <a href="/train/index.html">Training Battles</a> people play against the site's bot. The sampled data is typically over a 7-day period. It includes Pokemon and team data as played by both players and the bot. While it doesn't directly represent battles from the game, it is a close approximation.</p>
+		<p>The data is sampled with a threshold of around 150 minimum games for Pokemon, and 20 games minimum for teams. Pokemon and teams near these thresholds are marked orange to highlight their small sample sizes. Pokemon or teams with small sample sizes are more prone to being outliers (whether overperforming or underperforming). Consider these data points with some healthy skepticism.</p>
+		<h3>How does this page differ from the regular rankings?</h3>
+		<p>The regular rankings are generated using 1 vs 1 simulations between eligible Pokemon. The results are empirical and repeatable, but don't take into account team composition or full dynamic play like switching or failed/successful baits. It can provide immediate results for new Pokemon or move updates.</p>
+		<p>The Training Analysis data is recorded from fully played games from the Train feature. Team composition, player decisions, and dynamic play are all taken into account. It is able to provide a fuller picture than the simulated rankings. However, the data is not empirical. Performance and usage numbers are subject to the players who use the Train feature, how frequently they use particular Pokemon, and their performance with those Pokemon. Training Analysis also cannot provide immediate data for new Pokemon or move updates; a sufficient volume of battles must be recorded first.</p>
+	</div>
+</div>
+
+<div class="usage-modal hide">
+	<p><div class="usage-legend"></div><b class="pokemon-label"></b> usage on player and bot teams over 30 days.</p>
+	<div>Compare with:
+		<select class="usage-compare-select">
+			<option selected disabled>Select a Pokemon</option>
+		</select>
+	</div>
+	<div class="usage-container">
+		<div class="y-axis-container">
+			<div class="value">20%</div>
+			<div class="label">Usage on teams</div>
+			<div class="value">0%</div>
+		</div>
+
+		<div class="canvas-container">
+			<canvas canvas-id="0" class="usage-chart" width="400" height="300"></canvas>
+			<canvas canvas-id="1" class="usage-chart" width="400" height="300"></canvas>
+		</div>
+
+	</div>
+	<div class="x-axis-container">
+		<div class="value">Jan 1</div>
+		<div class="label">Time</div>
+		<div class="value">Jan 30</div>
+	</div>
+
+</div>
+
+<div class="sandbox-search-strings article hide">
+	<p>You can use the following search formats to filter Pokemon:</p>
+	<table cellspacing="0">
+		<tr>
+			<td><strong>Pokemon Name</strong></td>
+			<td>azumarill</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Nickname</strong></td>
+			<td>gfisk (<a class="nickname-list" href="#">List of nicknames<a>)</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Type</strong></td>
+			<td>water</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Tag</strong></td>
+			<td>legendary, mythical, ultrabeast, regional, alolan, galarian, starter, shadow, shadoweligible, mega, supermega, xl</td>
+		</tr>
+		<tr>
+			<td><strong>Generation/Region</strong></td>
+			<td>gen1, gen2, gen3, etc. <br>kanto, johto, hoenn, etc.</td>
+		</tr>
+		<tr>
+			<td><strong>Pokedex Number</strong></td>
+			<td>184</td>
+		</tr>
+		<tr>
+			<td><strong>Evolution Family</strong></td>
+			<td>+politoed</td>
+		</tr>
+		<tr>
+			<td><strong>Move Name</strong></td>
+			<td>@counter</td>
+		</tr>
+		<tr>
+			<td><strong>Move Type</strong></td>
+			<td>@fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Fast Move only</strong></td>
+			<td>@1fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Charged Move only</strong></td>
+			<td>@2mud</td>
+		</tr>
+		<tr>
+			<td><strong>Legacy Moves (excl. Return)</strong></td>
+			<td>@legacy</td>
+		</tr>
+		<tr>
+			<td><strong>Special Moves (incl. Return)</strong></td>
+			<td>@special</td>
+		</tr>
+		<tr>
+			<td><strong>Traits</strong></td>
+			<td>Bulky, Spammy, Risky, etc. See adjacent trait guide.</td>
+		</tr>
+		<tr>
+			<td><strong>Charged Move Cost</strong></td>
+			<td>10k, 50k, 75k, 100k</td>
+		</tr>
+		<tr>
+			<td><strong>Buddy Walk Distance</strong></td>
+			<td>1km, 3km, 5km, 20km</td>
+		</tr>
+		<tr>
+			<td><strong>Meta Pokemon</strong></td>
+			<td>meta</td>
+		</tr>
+		<tr>
+			<td><strong>Editor Notes</strong></td>
+			<td>notes</td>
+		</tr>
+		<tr>
+			<td><strong>4* Pokemon</strong></td>
+			<td>4*, Hundo</td>
+		</tr>
+		<tr>
+			<td><strong>And</strong></td>
+			<td>water&amp;@fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Or</strong></td>
+			<td>water,fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Not</strong></td>
+			<td>!water</td>
+		</tr>
+	</table>
+</div>
+
+<div class="search-nicknames article hide">
+	<p>You can select or search for Pokemon using the common nicknames below:</p>
+	<table cellspacing="0">
+		<thead>
+			<th>Pokemon</th>
+			<th>Nicknames</th>
+		</thead>
+
+		<tbody>
+		</tbody>
+	</table>
+</div>
+
+<script src="/js/battle/DamageCalculator.js"></script>
+<script src="/js/battle/actions/ActionLogic.js"></script>
+<script src="/js/battle/timeline/TimelineEvent.js"></script>
+<script src="/js/battle/timeline/TimelineAction.js"></script>
+<script src="/js/training/DecisionOption.js"></script>
+<script src="/js/battle/Battle.js"></script>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/TrainRankingInterface.js"></script>
+<script src="/js/interface/PokeSearch.js"></script>
+<script src="/js/interface/ModalWindow.js"></script>
+<script src="/js/RankingMain.js"></script>
+
+</div><!--end #main-->
+	</div><!--end #main-wrap-->
+
+	<footer>
+		<p class="copyright">Version <a href="https://github.com/pvpoke/pvpoke/releases">1.40.2.3</a> &copy; 2025 PvPoke LLC, released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a> | <a href="/privacy.html">Privacy Policy</a></p>
+		<p>Logo and brand colors by <a class="domz-link" href="https://pogodomz.bio.link/" target="_blank">pogoDomz</a></p>
+		<p>Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only. PvPoke LLC has no affiliation with The Pokémon Company, Niantic, Inc., or Nintendo.</p>
+	</footer>
+
+	<script src="/js/BootFooter.js?v=1.40.2.3"></script>
+
+</body>
+</html>
+

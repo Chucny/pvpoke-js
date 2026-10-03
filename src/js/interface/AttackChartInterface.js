@@ -195,7 +195,7 @@ let InterfaceMaster = (function () {
 						$row.find(".max").html(displayMax);
 
 						// Add ranking link
-						$row.find(".link a").attr("href", host+"rankings/" + battle.getCup().name + "/" + battle.getCP() + "/overall/" + pokemon.speciesId + "/");
+						$row.find(".link a").attr("href", url("rankings/" + battle.getCup().name + "/" + battle.getCP() + "/overall/" + pokemon.speciesId + "/"));
 
 						if(window.innerWidth <= 600){
 							$row.find(".cmp-item .subbar").width(barWidth + "%");					
@@ -240,9 +240,9 @@ let InterfaceMaster = (function () {
 				}, 50);
 
 
-				// Set share link URL
-				let url = host+"attack-cmp-chart/"+battle.getCup().name+"/"+battle.getCP()+"/";
-				$(".share-link input").val(url);
+				// Set share link URL. Absolute, since this is meant to be copied and shared.
+				let shareUrl = Router.href("attack-cmp-chart/"+battle.getCup().name+"/"+battle.getCP()+"/");
+				$(".share-link input").val(shareUrl);
 
 			}
 

@@ -669,37 +669,16 @@ var RankerMaster = (function () {
 				}
 
 				// Write rankings to file
-				if(cup.name != "custom"){
+				if(cup.name != "custom"){var category = scenario.slug;
 
-					var category = scenario.slug;
+				var json = JSON.stringify(rankings);
+				var league = battle.getCP();
 
-					var json = JSON.stringify(rankings);
-					var league = battle.getCP();
+				// Hand the file to the browser; there is no server left to write it.
+				// The author commits the download to src/data/rankings/<cup>/<category>/.
+				saveDataFile(cup.name + "/" + category + "/rankings-" + league + ".json", json);
 
-					console.log("/"+cup.name+"/"+category+"/rankings-"+league+".json");
-
-					$.ajax({
-
-						url : 'data/write.php',
-						type : 'POST',
-						data : {
-							'data' : json,
-							'league' : league,
-							'category' : category,
-							'cup': cup.name
-						},
-						dataType:'json',
-						success : function(data) {
-							console.log(data);
-
-							delete rankings;
-						},
-						error : function(request,error)
-						{
-							console.log("Request: "+JSON.stringify(request));
-							console.log(error);
-						}
-					});
+				delete rankings;
 				}
 
 				return rankings;

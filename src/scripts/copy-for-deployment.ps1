@@ -13,28 +13,26 @@ $deployPath = Join-Path $sourceRoot "src-deploy"
 # Paths are relative to src/. Directory entries also exclude everything below
 # that directory. Leading slashes are intentionally omitted for consistency
 # with the paths returned by Git.
+#
+# The gamemaster chunks and the override data are build inputs: they are merged
+# into src/data/gamemaster.json (by tools/compile-gamemaster.mjs) and read by
+# the override editor, so only the generated gamemaster.json is deployed.
+#
+# The server-side PHP files this list used to exclude (config.php, write.php,
+# compile.php, the parse*.php scripts, overrideEditor.php, feedEditor.php,
+# ranker.php, rankersandbox.php) are all archived in legacy/ now and are no
+# longer part of the deployed site, so they need no entry here. ranker.html and
+# rankersandbox.html are ordinary static pages and do get deployed.
 $ignoredPaths = @(
     "scripts"
     ".vscode"
-    "modules/config.php"
     "modules/ads"
-    "rss/feedEditor.php"
-    "data/compile.php"
-    "data/overrideEditor.php"
-    "data/parse.php"
-    "data/parseElite.php"
-    "data/parseEvolution.php"
-    "data/parseMoveCost.php"
-    "data/parseMoves.php"
-    "data/write.php"
     "data/overrides"
     "data/gamemaster/cups"
     "data/gamemaster/base.json"
     "data/gamemaster/moves.json"
     "data/gamemaster/pokemon.json"
     "data/gamemaster/formats.json"
-    "ranker.php"
-    "rankersandbox.php"
 )
 
 function Test-IgnoredPath {

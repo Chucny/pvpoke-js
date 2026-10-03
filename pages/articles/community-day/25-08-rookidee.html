@@ -1,0 +1,246 @@
+<!-- title: Rookidee Community Day Guide for PvP -->
+<!-- description: Corviknight makes a bid to enter the top meta. Will it finally beat the fraud allegations? Read up on everything you need to know for Rookidee Community Day! -->
+<!-- css: article-extras.css -->
+
+<!--#include header-->
+
+<div class="section article white rookidee">
+	<h1>Rookidee Community Day Guide for PvP</h1>
+	<div class="date">Last updated August 27th, 2025</div>
+	<img src="/articles/article-assets/community-day/25-08-rookidee/banner.jpg" />
+	<p>Corviknight has hovered on the edge of the PvP meta, but may finally have its chance to swoop in. It's getting a crucial speed buff with its exclusive attack, Air Cutter. Will it be enough to push Corviknight into core relevance? Let's look ahead to the move updates next season to get a bird's-eye view on Corviknight's prospects. You can find more info on Rookidee Community Day at the <a href="https://pokemongo.com/news/communityday-august-2025-rookidee" target="_blank">Pokemon GO blog</a>. </p>
+
+	<a name="overview"></a>
+	<h3 class="article-header"><strong>Overview</strong></h3>
+
+	<div class="cd-features">
+		<div class="feature">
+			<h4>Date &amp; Time</h4>
+			<div class="value">Saturday, August 30th<br></div>
+			<div class="detail">2pm - 5pm local time</div>
+		</div>
+		<div class="feature">
+			<h4>Event Bonus</h4>
+			<div class="value">1/4 Egg Hatch Distance</div>
+		</div>
+		<div class="feature">
+			<h4>Exclusive Charged Attack</h4>
+			<div class="value">Air Cutter</div>
+			<div class="detail">45 power, 30% chance to increase Attack by one stage</div>
+		</div>
+	</div>
+
+	<a name="checklist"></a>
+	<h3 class="article-header"><strong>League &amp; IV Recommendations</strong></h3>
+
+
+<div class="checklist-controls">
+	<div class="control-container">
+		<label>Sort: </label>
+		<select class="sort">
+			<option value="priority" direction="1">Priority</option>
+			<option value="cp" direction="1">League</option>
+			<option value="speciesId" direction="1">Species</option>
+			<option value="caught" direction="1">Completed</option>
+		</select>
+	</div>
+
+	<div class="control-container edit-control-off">
+		<button class="edit">Edit</button>
+	</div>
+
+	<div class="control-container edit-control-on">
+		<button class="reset">Reset</button>
+	</div>
+</div>
+
+<div class="cd-checklist"></div>
+
+<div class="checklist-item template">
+	<div class="title-section">
+		<div class="check"><span><div class="checkmark">&#10004;</div></span></div>
+		<h4>High Rank Jumpluff</h4>
+		<div class="league"></div>
+	</div>
+	<div class="iv-section">
+		<div class="iv-label">
+			<div class="level">Level 20</div>
+			<div class="ivs">0/15/15</div>
+		</div>
+		<div class="iv-bars">
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="base-form-section">
+		<img src="" />
+		<div class="cp-label">
+			<div class="cp-item">
+				<div class="label">Base Form</div>
+				<div class="cp">100</div>
+			</div>
+		</div>
+	</div>
+	<div class="priority-section">
+		<h4>Priority</h4>
+		<div class="item-controls">
+			<a href="#" class="info">?</a>
+			<a href="#" class="edit edit-control-on"></a>
+			<a href="#" class="delete edit-control-on"></a>
+		</div>
+	</div>
+</div>
+
+<!--Modal window forms-->
+
+<div class="checklist-reset-confirm hide">
+	<p>Do you want to reset to the default checklist?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="checklist-delete-confirm hide">
+	<p>Delete <b class="item-name"></b> from the checklist?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="checklist-new-item hide">
+	<label>Title</label>
+	<input class="title" type="text" maxlength="64" placeholder="Title" />
+
+	<label>Species</label>
+	<div class="species-section">
+		<img src="" />
+		<select class="speciesId"></select>
+	</div>
+
+	<label>League</label>
+	<div class="league-section">
+		<img src="" />
+		<select class="league">
+			<option value="special" cp="500">Little League</option>
+			<option value="great" cp="1500" selected>Great League</option>
+			<option value="ultra" cp="2500">Ultra League</option>
+			<option value="master" cp="10000">Master League</option>
+		</select>
+	</div>
+
+	<label>Priority</label>
+	<select class="priority">
+		<option value="1" selected>1: Priority</option>
+		<option value="2">2: Nice To Have</option>
+		<option value="3">3: Extra Mile</option>
+	</select>
+
+	<label>IVs</label>
+	<div class="ivs-section">
+		<input class="iv" iv="atk" type="number" min="0" max="15" step="1" placeholder="Atk" />
+		<span>/</span>
+		<input class="iv" iv="def" type="number" min="0" max="15" step="1" placeholder="Def" />
+		<span>/</span>
+		<input class="iv" iv="hp" type="number" min="0" max="15"step="1" placeholder="HP" />
+	</div>
+
+	<textarea class="notes" placeholder="Notes"></textarea>
+
+	<div class="center flex">
+		<div class="button add">Add Pokemon</div>
+		<div class="button save">Save Changes</div>
+	</div>
+</div>
+
+	<div class="mega-section">
+		<div class="mega-title">
+			<div class="mega-icon"></div>
+			<h4>Mega Evolve one of these Pokemon during Community Day to earn bonus catch candy!</h4>
+		</div>
+		<div class="mega-list">
+			<div class="mega-item" mega="charizard-y">
+				<div class="mega-image"></div>
+				<div class="mega-label">Charizard</div>
+			</div>
+			<div class="mega-item" mega="pidgeot">
+				<div class="mega-image"></div>
+				<div class="mega-label">Pidgeot</div>
+			</div>
+			<div class="mega-item" mega="pinsir">
+				<div class="mega-image"></div>
+				<div class="mega-label">Pinsir</div>
+			</div>
+			<div class="mega-item" mega="aerodactyl">
+				<div class="mega-image"></div>
+				<div class="mega-label">Aerodactyl</div>
+			</div>
+			<div class="mega-item" mega="salamence">
+				<div class="mega-image"></div>
+				<div class="mega-label">Salamence</div>
+			</div>
+			<div class="mega-item" mega="rayquaza">
+				<div class="mega-image"></div>
+				<div class="mega-label">Rayquaza</div>
+			</div>
+		</div>
+	</div>
+
+	<a name="faq"></a>
+	<div class="faq-item">
+		<h3 class="article-header"><strong>How good is Corviknight with Air Cutter?</strong></h3>
+		<div class="faq-answer">
+			<p><b>Corviknight should assume a core meta role next season with Air Cutter.</b> It currently suffers from slow pacing and soft matchups, and Air Cutter will notably improve its performance. One drawback is Air Cutter's tepid damage output, but this is offset by its potential Attack boost.</p>
+			<p>Air Cutter opens up Corviknight's moveset to explore other attack options, such as Payback. At the same time, Sky Attack is being improved, so some may prefer Corviknight with more reliable damage. Corviknight's prospects further improve as Dragons and Fairies become stronger next season. Corviknight should find the spotlight—not quite as strong as Skarmory at its peak, but nonetheless a crucial piece in the upcoming metagame.</p>
+		</div>
+	</div>
+
+	<a name="further-resources"></a>
+	<h3 class="article-header"><strong>Additional Resources</strong></h3>
+
+	<div class="flex further-resource-links">
+		<a href="https://pvpivs.com/" target="_blank">pvpivs.com</a>
+	</div>
+
+	<div class="share-link-container">
+		<p>Share this article:</p>
+		<div class="share-link">
+			<input type="text" value="https://pvpoke.com/articles/community-day/25-08-rookidee/" readonly>
+			<div class="copy">Copy</div>
+		</div>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script>
+	var articleId = "25-08-rookidee"; // This is used to fetch JSON data for this page's checklist
+</script>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/ModalWindow.js"></script>
+<script src="/js/interface/ArticleChecklist.js"></script>
+<script src="/js/battle/timeline/TimelineEvent.js"></script>
+<script src="/js/battle/DamageCalculator.js"></script>
+<script src="/js/battle/Battle.js"></script>
+<script src="/js/battle/Battle.js"></script>
+<script src="/js/Main.js"></script>
+
+<!--#include footer-->

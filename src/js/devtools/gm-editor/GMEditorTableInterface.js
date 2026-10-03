@@ -151,7 +151,7 @@ var InterfaceMaster = (function () {
                             $row.find("td[data='released']").html("No");
                         }
 
-                        $row.find("a.poke-edit").attr("href", host+"gm-editor/pokemon/"+pokemon.speciesId+"/");
+                        $row.find("a.poke-edit").attr("href", url("gm-editor/pokemon/"+pokemon.speciesId+"/"));
                         
                         $(".train-table tbody").append($row);
 
@@ -196,7 +196,7 @@ var InterfaceMaster = (function () {
 
                         $row.find("td[data='effect']").html(gm.getStatusEffectString(move));
 
-                        $row.find("a.poke-edit").attr("href", host+"gm-editor/moves/"+move.moveId+"/");
+                        $row.find("a.poke-edit").attr("href", url("gm-editor/moves/"+move.moveId+"/"));
                         
                         $(".train-table tbody").append($row);
                     }

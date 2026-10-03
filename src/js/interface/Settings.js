@@ -59,35 +59,33 @@ var InterfaceMaster = (function () {
 				var colorblindMode = $(".check.colorblindMode").hasClass("on") ? 1 : 0;
 				var performanceMode = $(".check.performanceMode").hasClass("on") ? 1 : 0;
 
-				$.ajax({
+				var updated = {
+					'defaultIVs' : defaultIVs,
+					'animateTimeline' : animateTimeline,
+					'matrixDirection': settings.matrixDirection || "row",
+					'theme': theme,
+					'gamemaster': gamemaster,
+					'pokeboxId': pokeboxId,
+					'pokeboxLastDateTime': settings.pokeboxLastDateTime,
+					'ads': ads,
+					'xls': xls,
+					'rankingDetails': rankingDetails,
+					'hardMovesetLinks': hardMovesetLinks,
+					'colorblindMode': colorblindMode,
+					'performanceMode': performanceMode
+				};
 
-					url : host+'data/settingsCookie.php',
-					type : 'POST',
-					data : {
-						'defaultIVs' : defaultIVs,
-						'animateTimeline' : animateTimeline,
-						'theme': theme,
-						'matrixDirection': "row",
-						'gamemaster': gamemaster,
-						'pokeboxId': pokeboxId,
-						'pokeboxLastDateTime': settings.pokeboxLastDateTime,
-						'ads': ads,
-						'xls': xls,
-						'rankingDetails': rankingDetails,
-						'hardMovesetLinks': hardMovesetLinks,
-						'colorblindMode': colorblindMode,
-						'performanceMode': performanceMode
-					},
-					dataType:'json',
-					success : function(data) {
-						modalWindow("Settings Saved", $("<p>Your settings have been updated. (Refresh the page if you've updated the site appearance.)</p>"))
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-						console.log(error);
+				// Keep the in-memory copy in sync for anything that reads
+				// `settings` later on this page.
+				for(var key in updated){
+					if(updated.hasOwnProperty(key)){
+						settings[key] = updated[key];
 					}
-				});
+				}
+
+				window.saveSettings(updated);
+
+				modalWindow("Settings Saved", $("<p>Your settings have been updated. (Refresh the page if you've updated the site appearance.)</p>"))
 			}
 
 			// Turn checkboxes on and off

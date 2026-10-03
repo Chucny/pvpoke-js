@@ -1,0 +1,257 @@
+<!-- title: Bellsprout Community Day Guide for PvP -->
+<!-- description: One of PvP's most feared Pokemon is getting its Community Day! How do Magical Leaf and Razor Leaf compare? Check out more info on Bellsprout Community Day and what IV's to watch for. -->
+<!-- css: article-extras.css -->
+
+<!--#include header-->
+
+<div class="section article white bellsprout">
+	<h1>Bellsprout Community Day Guide for PvP</h1>
+	<div class="date">Last updated April 19th, 2023</div>
+	<img src="/articles/article-assets/community-day/24-04-bellsprout/banner.jpg" />
+	<p>One of PvP's most feared Pokemon is getting its Community Day! How do Magical Leaf and Razor Leaf compare? Let's check out more info on Bellsprout Community Day and what IV's to watch for. You can also see more info on Bellsprout Community Day at the <a href="https://pokemongolive.com/post/communityday-april-2024-bellsprout" target="_blank">Pokemon GO blog</a>. </p>
+
+	<a name="overview"></a>
+	<h3 class="article-header"><strong>Overview</strong></h3>
+
+	<div class="cd-features">
+		<div class="feature">
+			<h4>Date &amp; Time</h4>
+			<div class="value">Saturday, April 20th<br></div>
+			<div class="detail">2pm - 5pm local time</div>
+		</div>
+		<div class="feature">
+			<h4>Event Bonus</h4>
+			<div class="value">3x Catch Stardust</div>
+		</div>
+		<div class="feature">
+			<h4>Exclusive Fast Move</h4>
+			<div class="value">Magical Leaf</div>
+		</div>
+	</div>
+
+	<a name="checklist"></a>
+	<h3 class="article-header"><strong>League &amp; IV Recommendations</strong></h3>
+
+
+<div class="checklist-controls">
+	<div class="control-container">
+		<label>Sort: </label>
+		<select class="sort">
+			<option value="priority" direction="1">Priority</option>
+			<option value="cp" direction="1">League</option>
+			<option value="speciesId" direction="1">Species</option>
+			<option value="caught" direction="1">Completed</option>
+		</select>
+	</div>
+
+	<div class="control-container edit-control-off">
+		<button class="edit">Edit</button>
+	</div>
+
+	<div class="control-container edit-control-on">
+		<button class="reset">Reset</button>
+	</div>
+</div>
+
+<div class="cd-checklist"></div>
+
+<div class="checklist-item template">
+	<div class="title-section">
+		<div class="check"><span><div class="checkmark">&#10004;</div></span></div>
+		<h4>High Rank Jumpluff</h4>
+		<div class="league"></div>
+	</div>
+	<div class="iv-section">
+		<div class="iv-label">
+			<div class="level">Level 20</div>
+			<div class="ivs">0/15/15</div>
+		</div>
+		<div class="iv-bars">
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+			<div class="iv-bar">
+				<div class="divider"></div>
+				<div class="divider"></div>
+				<div class="bar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="base-form-section">
+		<img src="" />
+		<div class="cp-label">
+			<div class="cp-item">
+				<div class="label">Base Form</div>
+				<div class="cp">100</div>
+			</div>
+		</div>
+	</div>
+	<div class="priority-section">
+		<h4>Priority</h4>
+		<div class="item-controls">
+			<a href="#" class="info">?</a>
+			<a href="#" class="edit edit-control-on"></a>
+			<a href="#" class="delete edit-control-on"></a>
+		</div>
+	</div>
+</div>
+
+<!--Modal window forms-->
+
+<div class="checklist-reset-confirm hide">
+	<p>Do you want to reset to the default checklist?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="checklist-delete-confirm hide">
+	<p>Delete <b class="item-name"></b> from the checklist?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="checklist-new-item hide">
+	<label>Title</label>
+	<input class="title" type="text" maxlength="64" placeholder="Title" />
+
+	<label>Species</label>
+	<div class="species-section">
+		<img src="" />
+		<select class="speciesId"></select>
+	</div>
+
+	<label>League</label>
+	<div class="league-section">
+		<img src="" />
+		<select class="league">
+			<option value="special" cp="500">Little League</option>
+			<option value="great" cp="1500" selected>Great League</option>
+			<option value="ultra" cp="2500">Ultra League</option>
+			<option value="master" cp="10000">Master League</option>
+		</select>
+	</div>
+
+	<label>Priority</label>
+	<select class="priority">
+		<option value="1" selected>1: Priority</option>
+		<option value="2">2: Nice To Have</option>
+		<option value="3">3: Extra Mile</option>
+	</select>
+
+	<label>IVs</label>
+	<div class="ivs-section">
+		<input class="iv" iv="atk" type="number" min="0" max="15" step="1" placeholder="Atk" />
+		<span>/</span>
+		<input class="iv" iv="def" type="number" min="0" max="15" step="1" placeholder="Def" />
+		<span>/</span>
+		<input class="iv" iv="hp" type="number" min="0" max="15"step="1" placeholder="HP" />
+	</div>
+
+	<textarea class="notes" placeholder="Notes"></textarea>
+
+	<div class="center flex">
+		<div class="button add">Add Pokemon</div>
+		<div class="button save">Save Changes</div>
+	</div>
+</div>
+
+	<div class="mega-section">
+		<div class="mega-title">
+			<div class="mega-icon"></div>
+			<h4>Mega Evolve one of these Pokemon during Community Day to earn bonus catch candy!</h4>
+		</div>
+		<div class="mega-list">
+			<div class="mega-item" mega="venusaur">
+				<div class="mega-image"></div>
+				<div class="mega-label">Venusaur</div>
+			</div>
+			<div class="mega-item" mega="beedrill">
+				<div class="mega-image"></div>
+				<div class="mega-label">Beedrill</div>
+			</div>
+			<div class="mega-item" mega="gengar">
+				<div class="mega-image"></div>
+				<div class="mega-label">Gengar</div>
+			</div>
+			<div class="mega-item" mega="sceptile">
+				<div class="mega-image"></div>
+				<div class="mega-label">Sceptile</div>
+			</div>
+			<div class="mega-item" mega="groudon">
+				<div class="mega-image"></div>
+				<div class="mega-label">Primal Groudon</div>
+			</div>
+			<div class="mega-item" mega="abomasnow">
+				<div class="mega-image"></div>
+				<div class="mega-label">Abomasnow</div>
+			</div>
+		</div>
+	</div>
+
+	<a name="faq"></a>
+	<div class="faq-item">
+		<h3 class="article-header"><strong>How good is Victreebel with Magical Leaf in PvP?</strong></h3>
+		<div class="faq-answer">
+			<p><b>Magical Leaf is a slight upgrade for Victreebel and allows it to reach Charged Moves faster.</b> Victreebel is most comparable to Venusaur, although it's a slight step down due to its lower bulk and a weaker Fast Move. Look to evolve Victreebel so you can have both Magical Leaf and Razor Leaf variants in your collection.</p>
+		</div>
+	</div>
+
+	<div class="faq-item">
+		<h3 class="article-header"><strong>Do I want Magical Leaf or Razor Leaf on my Victreebel?</strong></h3>
+		<div class="faq-answer">
+			<p><b>Consider Razor Leaf for Victreebel with higher Attack IV's, and Magical Leaf for Victreebel with higher stat product.</b> Your move choice may depend on your team and playstyle. In general, Magical Leaf Victreebel wants as good of an IV rank as possible to reach more Charged Moves, and Razor Leaf Victreebel wants some Attack IV's to increase its Fast Move pressure. Non-Shadow Victreebel should prefer Magical Leaf since Shadow Victreebel is the superior form for Razor Leaf.</p>
+		</div>
+	</div>
+
+	<div class="faq-item">
+		<h3 class="article-header"><strong>My Shadow Bellsprout still has Frustration. Can it learn Magical Leaf if I evolve it during Community Day?</strong></h3>
+		<div class="faq-answer">
+			<p><b>Yes, Magical Leaf is a Fast Move and won't be blocked by Frustration when you evolve Bellsprout during Community Day.</b></p>
+		</div>
+	</div>
+
+	<a name="further-resources"></a>
+	<h3 class="article-header"><strong>Additional Resources</strong></h3>
+
+	<div class="flex further-resource-links">
+		<a href="https://pvpivs.com/" target="_blank">pvpivs.com</a>
+	</div>
+
+	<div class="share-link-container">
+		<p>Share this article:</p>
+		<div class="share-link">
+			<input type="text" value="https://pvpoke.com/articles/community-day/24-04-bellsprout/" readonly>
+			<div class="copy">Copy</div>
+		</div>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script>
+	var articleId = "24-04-bellsprout"; // This is used to fetch JSON data for this page's checklist
+</script>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/ModalWindow.js"></script>
+<script src="/js/interface/ArticleChecklist.js"></script>
+<script src="/js/battle/timeline/TimelineEvent.js"></script>
+<script src="/js/battle/Battle.js"></script>
+<script src="/js/battle/Battle.js"></script>
+<script src="/js/Main.js"></script>
+
+<!--#include footer-->

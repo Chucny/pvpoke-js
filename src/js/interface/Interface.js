@@ -485,7 +485,7 @@ var InterfaceMaster = (function () {
 					}
 
 					var battleStr = self.generateSingleBattleLinkString(false);
-					var link = host + battleStr;
+					var link = url(battleStr);
 
 					$(".share-link input").val(link);
 
@@ -834,7 +834,7 @@ var InterfaceMaster = (function () {
 				}
 
 				// CMP Chart link
-				let cmpChartLink = host+"attack-cmp-chart/all/"+battle.getCP()+"/"+pokemon[0].aliasId+"/";
+				let cmpChartLink = url("attack-cmp-chart/all/"+battle.getCP()+"/"+pokemon[0].aliasId+"/");
 				$(".battle-cmp-link").html(pokemon[0].speciesName + " CMP Chart");
 				$(".battle-cmp-link").attr("href", cmpChartLink);
 
@@ -1153,7 +1153,7 @@ var InterfaceMaster = (function () {
 					var opPokeStr = pokemon.generateURLPokeStr();
 					var opMoveStr = pokemon.generateURLMoveStr();
 
-					var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/";
+					var battleLink = url("battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/");
 
 					// Append extra options
 
@@ -1264,7 +1264,7 @@ var InterfaceMaster = (function () {
 				}
 
 
-				var link = host + battleStr;
+				var link = url(battleStr);
 
 				$(".share-link input").val(link);
 
@@ -1344,20 +1344,23 @@ var InterfaceMaster = (function () {
 				  'category' : 'Matrix'
 				});
 
-				// Create URL for up to 8v8 matrix battles
-				let url = host + 'battle/matrix/';
+				// Create URL for up to 8v8 matrix battles.
+				// Built as a pretty path and converted only once at the end:
+				// Router.url() returns a finished query string, so appending
+				// segments to it directly would produce nonsense.
+				let matrixStr = 'battle/matrix/';
 				let urlData = { cp: battle.getCP(), mode: "matrix" };
 
 				let teamCount = multiSelectors[1].isCustomGroup() ? team.length : 0;
 				let targetCount = multiSelectors[0].isCustomGroup() ? targets.length : 0;
 
 				if(teamCount + targetCount <= 16){
-					url += battle.getCP() + "/";
+					matrixStr += battle.getCP() + "/";
 
 					let matrix1 = encodeURIComponent(multiSelectors[0].generateURLMoveStr());
 					let matrix2 = encodeURIComponent(multiSelectors[1].generateURLMoveStr());
 
-					url += matrix1 + "/" + matrix2;
+					matrixStr += matrix1 + "/" + matrix2;
 
 					urlData["matrix1"] = matrix1;
 					urlData["matrix2"] = matrix2;
@@ -1366,15 +1369,15 @@ var InterfaceMaster = (function () {
 					let targetShields = multiSelectors[1].getSettings().shields;
 					let urlShieldStr = teamShields + "" + targetShields;
 					urlData["s"] = urlShieldStr;
-					url += "/" + urlShieldStr + "/";
+					matrixStr += "/" + urlShieldStr + "/";
 
 					$(".battle-results.matrix .share-link").show();
-					$(".battle-results.matrix .share-link input").val(url);
+					$(".battle-results.matrix .share-link input").val(Router.href(matrixStr));
 				} else{
 					$(".battle-results.matrix .share-link").hide();
 				}
 
-				window.history.pushState(urlData, "Matrix Battle", url);
+				window.history.pushState(urlData, "Matrix Battle", Router.url(matrixStr));
 
 
 			}
@@ -1565,7 +1568,7 @@ var InterfaceMaster = (function () {
 						var moveStr = pokemon.generateURLMoveStr();
 						var opPokeStr = opponent.generateURLPokeStr();
 						var opMoveStr = opponent.generateURLMoveStr();
-						var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+pokemon.startingShields+""+opponent.startingShields+"/"+moveStr+"/"+opMoveStr+"/";
+						var battleLink = url("battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+pokemon.startingShields+""+opponent.startingShields+"/"+moveStr+"/"+opMoveStr+"/");
 
 
 						if( pokemon.startHp != pokemon.stats.hp || opponent.startHp != opponent.stats.hp || pokemon.startEnergy != 0 || opponent.startEnergy != 0){
@@ -2272,7 +2275,7 @@ var InterfaceMaster = (function () {
 
 				var battleStr = self.generateSingleBattleLinkString(true);
 
-				var link = host + battleStr;
+				var link = url(battleStr);
 
 				$(".share-link input").val(link);
 
@@ -2394,7 +2397,7 @@ var InterfaceMaster = (function () {
 					$(".poke.multi .custom-options").show();
 
 					if(! settingGetParams){
-						window.history.pushState({mode: "matrix"}, "Battle", webRoot + "battle/matrix/");
+						window.history.pushState({mode: "matrix"}, "Battle", Router.url("battle/matrix/"));
 					}
 					
 

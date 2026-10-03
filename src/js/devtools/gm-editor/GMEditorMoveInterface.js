@@ -681,7 +681,7 @@ var InterfaceMaster = (function () {
                                 } else{
                                     modalWindow("Error", $(".learnset-remove-error"));
 
-                                    let pokeUrl = host + "gm-editor/pokemon/" + selectedPokemon.speciesId + "/";
+                                    let pokeUrl = url("gm-editor/pokemon/" + selectedPokemon.speciesId + "/");
                                     $(".modal a.edit-pokemon").attr("href", pokeUrl);
                                     $(".modal span.name").html(selectedPokemon.speciesName);
                                 }

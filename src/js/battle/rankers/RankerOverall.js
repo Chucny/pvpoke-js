@@ -260,27 +260,9 @@ var RankerMaster = (function () {
 
 				console.log(category+"/rankings-"+league+".json");
 
-				// Write to a file
-
-				$.ajax({
-
-					url : 'data/write.php',
-					type : 'POST',
-					data : {
-						'data' : json,
-						'league' : league,
-						'category' : category,
-						'cup' : cup
-					},
-					dataType:'json',
-					success : function(data) {
-						console.log(data);
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-					}
-				});
+				// Hand the file to the browser; there is no server left to write it.
+				// The author commits the download to src/data/rankings/<cup>/<category>/.
+				saveDataFile(cup + "/" + category + "/rankings-" + league + ".json", json);
 
 				// Save beaminess
 
@@ -300,29 +282,11 @@ var RankerMaster = (function () {
 					var league = battle.getCP();
 					var category = "beaminess";
 
-					console.log(category+"/rankings-"+league+".json");
+						console.log(category+"/rankings-"+league+".json");
 
-					// Write to a file
-
-					$.ajax({
-
-						url : 'data/write.php',
-						type : 'POST',
-						data : {
-							'data' : json,
-							'league' : league,
-							'category' : category,
-							'cup' : cup
-						},
-						dataType:'json',
-						success : function(data) {
-							console.log(data);
-						},
-						error : function(request,error)
-						{
-							console.log("Request: "+JSON.stringify(request));
-						}
-					});
+						// Hand the file to the browser; there is no server left to write it.
+						// The author commits the download to src/data/rankings/<cup>/<category>/.
+						saveDataFile(cup + "/" + category + "/rankings-" + league + ".json", json);
 
 					return rankings;
 				}
@@ -346,27 +310,9 @@ var RankerMaster = (function () {
 
 				console.log(category+"/rankings-"+league+".json");
 
-				// Write to a file
-
-				$.ajax({
-
-					url : 'data/write.php',
-					type : 'POST',
-					data : {
-						'data' : json,
-						'league' : league,
-						'category' : category,
-						'cup' : cup
-					},
-					dataType:'json',
-					success : function(data) {
-						console.log(data);
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-					}
-				});
+				// Hand the file to the browser; there is no server left to write it.
+				// The author commits the download to src/data/rankings/<cup>/<category>/.
+				saveDataFile(cup + "/" + category + "/rankings-" + league + ".json", json);
 
 				return rankings;
 			}

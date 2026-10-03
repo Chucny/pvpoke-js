@@ -213,17 +213,19 @@ var InterfaceMaster = (function () {
 			// When the view state changes, push to browser history so it can be navigated forward or back
 
 			this.pushHistoryState = function(moveMode){
-				var url = webRoot+"moves/"+moveMode+"/";
+				// Named pageUrl, not url: a local named `url` would shadow the
+				// global url() helper that Router exposes.
+				var pageUrl = Router.url("moves/"+moveMode+"/");
 
 				var data = {mode: mode};
 
-				window.history.pushState(data, "Moves", url);
+				window.history.pushState(data, "Moves", pageUrl);
 
 				// Send Google Analytics pageview
 
 				gtag('event', 'page_view', {
 				  page_title: document.title,
-				  page_location: (host+"moves/"+moveMode+"/"),
+				  page_location: Router.href("moves/"+moveMode+"/"),
 				  pageview_type: 'virtual'
 				});
 			}
@@ -328,7 +330,7 @@ var InterfaceMaster = (function () {
 						}
 
 						if(valid){
-							var rankLink = host+"rankings/all/1500/overall/"+pokemon.speciesId;
+							var rankLink = url("rankings/all/1500/overall/"+pokemon.speciesId);
 
 							var $rank = $("<a href=\""+rankLink+"\" target=\"_blank\" class=\"rank "+pokemon.types[0]+"\"><div class=\"name-container\"><span class=\"name\">"+pokemon.speciesName+" "+(isLegacy ? "*" : "")+"</span></div></a>");
 

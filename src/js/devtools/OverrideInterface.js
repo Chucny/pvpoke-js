@@ -489,37 +489,20 @@ var InterfaceMaster = (function () {
 
 					closeModalWindow();
 				});
-			});
-
-			// Save overrides to JSON file
+			});// Save overrides to a JSON file
 
 			$(".button.save-overrides").click(function(e){
 				var json = JSON.stringify(data);
 				var league = battle.getCP();
 				var cup = battle.getCup();
 
-				var filepath = "/overrides/"+cup.name+"/"+league+".json"
+				var filepath = "overrides/"+cup.name+"/"+league+".json";
 
-				$.ajax({
+				// There is no server left to write to, so this downloads instead.
+				// Download it, then commit it at src/data/<destination>.
+				saveDataFile(filepath, json);
 
-					url : 'write.php',
-					type : 'POST',
-					data : {
-						'data' : json,
-						'league' : league,
-						'category' : 'overrides',
-						'cup': cup.name
-					},
-					dataType:'json',
-					success : function(data) {
-						modalWindow("Overrides Saved", $("<div>Moveset overrides saved to <b>" + filepath + "</b></div>"));
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-						console.log(error);
-					}
-				});
+				modalWindow("Overrides Downloaded", $("<div>Downloaded as <b>" + filepath + "</b>. Place it under <b>src/data/</b> and commit it.</div>"));
 			});
 
 			// Copy overrides to clipboard
@@ -538,7 +521,7 @@ var InterfaceMaster = (function () {
 			$("a.ranker-link").click(function(e){
 				e.preventDefault();
 
-				window.open(webRoot + 'ranker.php?cup=' + battle.getCup().name + '&cp=' + battle.getCP(), '_blank');
+				window.open(webRoot + 'ranker.html?cup=' + battle.getCup().name + '&cp=' + battle.getCP(), '_blank');
 			});
 		};
 

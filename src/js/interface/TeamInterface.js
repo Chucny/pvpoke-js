@@ -440,7 +440,7 @@ var InterfaceMaster = (function () {
 						var opPokeStr = r.matchups[n].opponent.generateURLPokeStr();
 						var opMoveStr = r.matchups[n].opponent.generateURLMoveStr();
 						var shieldStr = shieldCount + "" + shieldCount;
-						var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/";
+						var battleLink = url("battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/");
 						$cell.find("a").attr("href", battleLink);
 
 						$row.append($cell);
@@ -557,7 +557,7 @@ var InterfaceMaster = (function () {
 						var opPokeStr = r.matchups[n].opponent.generateURLPokeStr();
 						var opMoveStr = r.matchups[n].opponent.generateURLMoveStr();
 						var shieldStr = shieldCount + "" + shieldCount;
-						var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/";
+						var battleLink = url("battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/");
 						$cell.find("a").attr("href", battleLink);
 
 						$row.append($cell);
@@ -923,7 +923,7 @@ var InterfaceMaster = (function () {
 						var opPokeStr = r.matchups[n].opponent.generateURLPokeStr();
 						var opMoveStr = r.matchups[n].opponent.generateURLMoveStr();
 						var shieldStr = shieldCount + "" + shieldCount;
-						var battleLink = host+"battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/";
+						var battleLink = url("battle/"+battle.getCP(true)+"/"+pokeStr+"/"+opPokeStr+"/"+shieldStr+"/"+moveStr+"/"+opMoveStr+"/");
 						$cell.find("a").attr("href", battleLink);
 
 						$row.append($cell);
@@ -1341,7 +1341,7 @@ var InterfaceMaster = (function () {
 
 					// Add move strings to URL
 
-					var link = host + teamStr;
+					var link = url(teamStr);
 
 					$(".share-link input").val(link);
 

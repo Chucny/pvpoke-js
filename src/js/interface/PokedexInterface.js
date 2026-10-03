@@ -104,15 +104,17 @@ var InterfaceMaster = (function () {
 			// When the view state changes, push to browser history so it can be navigated forward or back
 
 			this.pushHistoryState = function(moveMode){
-				var url = webRoot+"moves/"+moveMode+"/";
+				// Named pageUrl, not url: a local named `url` would shadow the
+				// global url() helper that Router exposes.
+				var pageUrl = Router.url("moves/"+moveMode+"/");
 
 				var data = {mode: mode};
 
-				window.history.pushState(data, "Moves", url);
+				window.history.pushState(data, "Moves", pageUrl);
 
 				// Send Google Analytics pageview
 
-				gtag('config', UA_ID, {page_location: (host+url), page_path: url});
+				gtag('config', UA_ID, {page_location: Router.href("moves/"+moveMode+"/"), page_path: pageUrl});
 			}
 
 			// Refilter moves after being sorted

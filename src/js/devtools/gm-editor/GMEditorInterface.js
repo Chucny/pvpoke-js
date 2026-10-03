@@ -329,21 +329,9 @@ var InterfaceMaster = (function () {
 
                     console.log(settings);
 
-                    $.ajax({
+                    window.saveSettings(settings);
 
-                        url : host+'data/settingsCookie.php',
-                        type : 'POST',
-                        data : settings,
-                        dataType:'json',
-                        success : function(data) {
-                            console.log("Settings updated");
-                        },
-                        error : function(request,error)
-                        {
-                            console.log("Request: "+JSON.stringify(request));
-                            console.log(error);
-                        }
-                    });
+                    console.log("Settings updated");
                 }
 
                 if(id == "gamemaster"){
@@ -437,22 +425,10 @@ var InterfaceMaster = (function () {
                     // Save settings to new gamemaster
                     settings.gamemaster = id;
 
-                    $.ajax({
+                    window.saveSettings(settings);
 
-                        url : host+'data/settingsCookie.php',
-                        type : 'POST',
-                        data : settings,
-                        dataType:'json',
-                        success : function(data) {
-                            // Navigate to edit page
-                            window.location.href = $("a#save-new-btn").attr("href");
-                        },
-                        error : function(request,error)
-                        {
-                            console.log("Request: "+JSON.stringify(request));
-                            console.log(error);
-                        }
-                    });
+                    // Navigate to edit page
+                    window.location.href = $("a#save-new-btn").attr("href");
 
                 } else{
                     $(".modal #gm_name + .error-label").show();

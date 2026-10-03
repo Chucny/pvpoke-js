@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PvPoke | Open-Source Battle Simulator, Rankings & Team Building for Pokemon GO PvP</title>
+<meta name="description" content="Looking for an edge in Pokemon GO Trainer Battles? Become a master with our open-source Pokemon battle simulator, explore the top Pokemon rankings, and get your team rated for PvP battles." />
+
+<link rel="canonical" href="https://pvpoke.com/" />
+
+<!--OG tags for social-->
+<meta property="og:title" content="PvPoke | Open-Source Battle Simulator, Rankings & Team Building for Pokemon GO PvP" />
+<meta property="og:description" content="Looking for an edge in Pokemon GO Trainer Battles? Become a master with our open-source Pokemon battle simulator, explore the top Pokemon rankings, and get your team rated for PvP battles." />
+<meta property="og:image" content="https://pvpoke.com/img/og.jpg" />
+
+<meta name="apple-mobile-web-app-capable">
+<meta name="mobile-web-app-capable">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="manifest" href="/data/manifest.json?v=3">
+
+<link id="favicon" rel="icon" href="/img/themes/sunflower/favicon.png">
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=235">
+
+
+<script src="/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/js/Router.js?v=1.40.2.3"></script>
+<script src="/js/Boot.js?v=1.40.2.3"></script>
+<script src="/js/interface/RSSReader.js?v=1.40.2.3"></script>
+<script src="/js/BootPost.js?v=1.40.2.3"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<div class="header-wrap">
+			<a href="/index.html"><img src="/img/themes/sunflower/header.png" title="PvPoke.com" /></a>
+
+			<div class="hamburger mobile">
+				<!--Because I'm too lazy to make a graphic-->
+				<div class="meat"></div>
+				<div class="meat"></div>
+				<div class="meat"></div>
+			</div>
+			<div class="menu">
+				<div class="menu-content">
+					<div class="parent-menu">
+						<a class="icon-battle" href="/battle.html">
+							Battle<span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/battle.html">Single Battle</a>
+								<a class="nav-ultra" href="/battle.html?mode=multi">Multi Battle</a>
+								<a class="nav-master" href="/battle.html?mode=matrix">Matrix Battle</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu">
+						<a class="icon-rankings" href="/rankings.html">
+							Rankings <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/rankings.html?cp=1500&cat=overall">Great League</a>
+								<a class="nav-ultra" href="/rankings.html?cp=2500&cat=overall">Ultra League</a>
+								<a class="nav-master" href="/rankings.html?cp=10000&cat=overall">Master League</a>
+								<a href="/custom-rankings.html">Custom Rankings</a>
+							</div>
+						</div>
+					</div>
+					<a class="icon-team" href="/team-builder.html">Team Builder</a>
+					<div class="parent-menu">
+						<a class="icon-train" href="/train/index.html">
+							Train <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/train/analysis.html">Top Performers</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu more-parent-menu">
+						<a class="more desktop" href="#">
+							<div class="hamburger desktop">
+								<!--Because I'm too lazy to make a graphic-->
+								<div class="meat"></div>
+								<div class="meat"></div>
+								<div class="meat"></div>
+							</div>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/attack-cmp-chart.html">CMP Chart</a>
+								<a href="/moves.html">Moves</a>
+								<a href="/articles/index.html">Articles</a>
+								<a href="/settings.html">Settings</a>
+								<a class="icon-heart" href="/contact.html">Contact</a>
+								<a class="tera" href="/tera/index.html">Tera Raid Counters</a>
+								<div class="latest-section mobile">
+									<h4>Latest <a href="/index.html#news"></a></h4>
+									<a class="latest-link" href="#"></a>
+									<div class="date"></div>
+								</div>
+							</div>
+						</div>
+						<div class="safe-mouse-space"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="main-wrap">
+		<div id="main">
+			<div class="custom-gm-banner" id="custom-gm-banner" style="display:none">
+				A <a href="/gm-editor/index.html">custom gamemaster</a> is active. Simulations and content may change.
+			</div>
+
+
+
+
+<!--<div class="banner-link">Take the <a href="https://forms.gle/jUVrKMjGRkYSzui59" target="_blank">PvPoke.com feedback survey</a> and help improve the website!</div>-->
+
+<div class="section home white">
+
+	<p class="small">Welcome to PvPoke.com, an open-source tool for Pokemon GO PvP and GO Battle League!</p>
+
+	<a href="/battle.html" class="button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-battle"></span>
+			<span class="btn-label">
+				<h2>Battle</h2>
+				<p>Simulate battles between two or more Pokemon.</p>
+			</span>
+		</span>
+	</a>
+
+	<a href="/rankings.html" class="button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-rankings"></span>
+			<span class="btn-label">
+				<h2>Rankings</h2>
+				<p>Explore the rankings, movesets, and counters for the top Pokemon in each league.</p>
+			</span>
+		</span>
+	</a>
+
+	<a href="/team-builder.html" class="button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-team"></span>
+			<span class="btn-label">
+				<h2>Team Builder</h2>
+				<p>Build your own team and see potential threats and suggestions.</p>
+			</span>
+		</span>
+	</a>
+
+	<a href="/train/index.html" class="button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-train"></span>
+			<span class="btn-label">
+				<h2>Train</h2>
+				<p>Play real-time battle simulations against a CPU opponent.</p>
+			</span>
+		</span>
+	</a>
+
+
+	<a href="/contact.html" class="button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-heart"></span>
+			<span class="btn-label">
+				<h2>Contact</h2>
+				<p>Get in touch, report a technical issue, or lend your support through Patreon.</p>
+			</span>
+		</span>
+	</a>
+
+	<h3>Pokemon Scarlet &amp; Violet</h3>
+
+	<a name="news"></a>
+
+	<a href="/tera/index.html" class="button tera-button">
+		<span class="btn-content-wrap">
+			<span class="btn-icon btn-icon-tera"></span>
+			<span class="btn-label">
+				<h2>Tera Raid Counter Calculator</h2>
+				<p>Take on Tera Raid bosses with this tool to look up Pokemon with the best type matchups.</p>
+			</span>
+		</span>
+	</a>
+
+
+	<!--Update section for updates-->
+	<div class="flex new-header">
+		<h3>What's New</h3>
+		<a href="/rss/feed.xml" target="_blank" class="feed-subscribe">RSS Feed</a>
+	</div>
+
+	<div class="feed-container expanded">
+		<div class="feed"></div>
+
+		<div class="news-item template hide">
+			<h4></h4>
+			<div class="news-content"></div>
+			<div class="news-info">
+				<div class="news-date"></div>
+				<a href="#"><div class="link-text">pvpoke.com</div><div>&rarr;</div></a>
+			</div>
+		</div>
+
+		<button class="feed-expand"></button>
+	</div>
+
+</div>
+
+<script src="/js/GameMaster.js"></script>
+<script src="/js/pokemon/Pokemon.js"></script>
+<script src="/js/interface/HomeInterface.js"></script>
+<script src="/js/Main.js"></script>
+
+</div><!--end #main-->
+	</div><!--end #main-wrap-->
+
+	<footer>
+		<p class="copyright">Version <a href="https://github.com/pvpoke/pvpoke/releases">1.40.2.3</a> &copy; 2025 PvPoke LLC, released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a> | <a href="/privacy.html">Privacy Policy</a></p>
+		<p>Logo and brand colors by <a class="domz-link" href="https://pogodomz.bio.link/" target="_blank">pogoDomz</a></p>
+		<p>Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only. PvPoke LLC has no affiliation with The Pokémon Company, Niantic, Inc., or Nintendo.</p>
+	</footer>
+
+	<script src="/js/BootFooter.js?v=1.40.2.3"></script>
+
+</body>
+</html>

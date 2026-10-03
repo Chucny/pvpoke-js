@@ -6,7 +6,27 @@ This started as a passion project that went from “I wonder what this would loo
 
 ## Running PvPoke
 
-See the [Installation](https://github.com/pvpoke/pvpoke/wiki/Installation) section of the PvPoke Wiki.
+PvPoke is a static site. Anything that serves files over HTTP will do — nginx, Apache, Caddy, GitHub Pages, or the one-line server used during development:
+
+```
+node tools/serve.mjs
+```
+
+There is nothing to install and no server-side code to run. `src/` is the document root, and it should be served at the root of a host so the absolute paths in the generated pages resolve.
+
+A Docker setup is included in `docker/`. It builds an nginx image and mounts `src/` read-only as the document root.
+
+To check a change before deploying, run the verification suite. It rebuilds the site, checks every internal link and script reference, and (with `--browser`) drives headless Chrome to confirm the pages actually render:
+
+```
+node tools/verify.mjs --browser
+```
+
+## Working on PvPoke
+
+`src/` is the served site, and its contents are generated — edit the sources in `pages/` and `partials/`, then run `node tools/build.mjs` to write the result into `src/`. The rules for that process, including how shared markup is included and where the cache-busting version lives, are in [CONVERSION-SPEC.md](CONVERSION-SPEC.md).
+
+The server-side PHP the site used to run on is no longer part of this repository. `legacy/README.md` (kept locally, ignored by git) maps each old script to whatever replaced it.
 
 ## Site Structure
 
@@ -14,7 +34,7 @@ It was about 10 minutes into development when I realized this project would be g
 
 Here’s a rundown on how most of the pages operate:
 
-1. Main PHP file generates base HTML. These PHP files contain HTML only, and have no inherent functionality. They import any necessary Javascript files. These are our views, so to speak.
+1. A page under `pages/` generates the base HTML. These files contain HTML only, and have no inherent functionality. They import any necessary Javascript files. These are our views, so to speak.
 2. `GameMaster.js` loads the `data/gamemaster.json` file, which contains all Pokemon and move data. This is our model.
 3. Once the data is loaded, `GameMaster.js` calls an interface object from one of several script files in the `/js/interface` directory to initialize. This object does things like populate dropdowns with data, create event listeners, etc. These are kind of extensions of the view.
 4. Once the interface receives a certain interaction, it’ll call on an object like `Battle.js` or `TeamRanker.js` to receive user input, process it along with the model data, and return results to be displayed by the interface. These files are like the controller.
@@ -23,13 +43,17 @@ It’s something just close enough to MVC that I get to pat myself on the back, 
 
 ## Generating Rankings
 
-Rankings can be generated locally using the following steps:
+Rankings can be generated locally. They run in the browser, and the result is downloaded rather than written to the server.
 
-1. In your browser, visit the `ranker.php` page.
+1. In your browser, visit the `ranker.html` page.
 2. Open the developer console. This is where you’ll see output.
-3. Run the simulations. This may take a few minutes. The `ranker.php` page will generate rankings for every league and category, and save the JSON results to the `/data` directory.
-4. If you want to generate overall rankings, visit the `rankersandbox.php` page.
-5. For each league, click the Simulate button. This will load previously generated JSON, process it, and save overall rankings to the `/data/overall` directory.
+3. Run the simulations. This may take a few minutes. The `ranker.html` page will generate rankings for every league and category and offer each one as a JSON download.
+4. If you want to generate overall rankings, visit the `rankersandbox.html` page.
+5. For each league, click the Simulate button. This will load previously generated JSON, process it, and offer the overall rankings to you as downloads.
+
+Save the downloaded files under `src/data/` (and `src/data/overall/`) at the path the page names, then commit them so the deployed site serves them.
+
+Regenerating `src/data/gamemaster.json` works differently, because it is assembled from the chunks in `src/data/gamemaster/` and is too large to hand around as a download. Run `node tools/compile-gamemaster.mjs` instead.
 
 Feel free to copy the `Ranker.js` or `RankerOverall.js` files and experiment with your own modifications or algorithms.
 

@@ -57,7 +57,7 @@ var GameMaster = (function () {
 
 				for(var i = formats.length - 1; i >= 0; i--){
 					if(formats[i].showFormat && ! formats[i].hideRankings && formats[i].title != "Custom"){
-						var $link = $("<a href=\""+(host + "rankings/" + formats[i].cup + "/" + formats[i].cp + "/overall/"+"\">"+formats[i].title+"</a>"));
+						var $link = $("<a href=\"" + url("rankings/" + formats[i].cup + "/" + formats[i].cp + "/overall/") + "\">"+formats[i].title+"</a>");
 						$link.insertAfter($(".icon-rankings + .submenu a").eq(2));
 					}
 				}
@@ -71,7 +71,13 @@ var GameMaster = (function () {
 					object.createPokeSelectList();
 
 					if(typeof InterfaceMaster !== 'undefined'){
-						InterfaceMaster.getInstance().init(object);
+						// HomeInterface (the homepage) has no init(), so guard the
+						// call rather than throwing once the gamemaster loads.
+						var interface = InterfaceMaster.getInstance();
+
+						if(typeof interface.init == 'function'){
+							interface.init(object);
+						}
 					}
 
 					if(typeof customRankingInterface !== 'undefined'){
@@ -109,7 +115,13 @@ var GameMaster = (function () {
 						object.createPokeSelectList();
 
 						if(typeof InterfaceMaster !== 'undefined'){
-							InterfaceMaster.getInstance().init(object);
+							// HomeInterface (the homepage) has no init(), so guard the
+							// call rather than throwing once the gamemaster loads.
+							var interface = InterfaceMaster.getInstance();
+
+							if(typeof interface.init == 'function'){
+								interface.init(object);
+							}
 						}
 
 						if(typeof customRankingInterface !== 'undefined'){

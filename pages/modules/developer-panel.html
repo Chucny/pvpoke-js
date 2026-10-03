@@ -1,0 +1,122 @@
+<div id="dev-panel">
+	<a class="wrench" href="#"></a>
+	<div class="dev-panel-container">
+		<h3>Developer Panel</h3>
+
+		<h4>Data</h4>
+
+		<a class="button dev-compile-gamemaster" href="#">Compile gamemaster</a>
+		<a class="button dev-default-ivs" href="#">Generate default IV's</a>
+		<a class="button dev-shadow-stats" href="#">Update Shadow stats</a>
+		<a class="button dev-moveset-csv" href="#">Generate Moveset CSV</a>
+		<!--<a class="button dev-validate-family" href="#">Validate Family IDs</a>-->
+
+		<h4>Quick Links</h4>
+		<a class="button" href="/gm-editor/index.html">Gamemaster Editor</a>
+		<a class="button" href="/override-editor.html">Override Editor</a>
+		<a class="button" href="/ranker.html">Ranker</a>
+		<a class="button" href="/rankersandbox.html">Rankersandbox</a>
+		<a class="button" href="/rss-editor.html">RSS Feed</a>
+		<a class="button dev-production-link" href="#">Open page in production</a>
+	</div>
+</div>
+
+<script>
+	// On document ready
+	$(function() {
+
+		var gm = GameMaster.getInstance();
+		var $devPanel = $("#dev-panel").first();
+
+		// Open and close the developer panel
+		$devPanel.find("a.wrench").click(function(e){
+			e.preventDefault();
+			$devPanel.toggleClass("active");
+		});
+
+		// Compile the gamemaster from its JSON chunks.
+		//
+		// This used to be a link to data/compile.php, which assembled the chunks
+		// and wrote gamemaster.json on the server. With no server the browser
+		// downloads the assembled file instead, and the author commits it.
+		//
+		// A static file server cannot list a directory, so cups/manifest.json
+		// (written by tools/compile-gamemaster.mjs) says which cups to fetch.
+
+		$devPanel.find("a.dev-compile-gamemaster").click(async function(e){
+			e.preventDefault();
+
+			var root = webRoot + "data/gamemaster/";
+
+			try{
+				var get = async function(file){
+					var response = await fetch(root + file);
+
+					if(! response.ok){
+						throw new Error(file + ": " + response.status);
+					}
+
+					return response.json();
+				};
+
+				var base = await get("base.json");
+				var pokemon = await get("pokemon.json");
+				var moves = await get("moves.json");
+				var formats = await get("formats.json");
+
+				var cupFiles = await get("cups/manifest.json");
+
+				base.timestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+				base.pokemon = pokemon;
+				base.moves = moves;
+				base.formats = formats;
+				base.cups = [];
+
+				for(var i = 0; i < cupFiles.length; i++){
+					base.cups.push(await get("cups/" + cupFiles[i]));
+				}
+
+				var name = saveDataFile("gamemaster.json", JSON.stringify(base));
+
+				modalWindow("Gamemaster Downloaded", $("<div>Downloaded <b>" + name + "</b>. Copy it over <b>src/data/gamemaster.json</b> and <b>src/data/gamemaster.min.json</b>.</div>"));
+			} catch(error){
+				console.error(error);
+				modalWindow("Compile Failed", $("<div>" + error.message + "</div>"));
+			}
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-default-ivs").click(function(e){
+			e.preventDefault();
+			gm.generateDefaultIVs();
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-shadow-stats").click(function(e){
+			e.preventDefault();
+			gm.updateShadowStatus();
+		});
+
+		// Validate family IDs
+		$devPanel.find("a.dev-validate-family").click(function(e){
+			e.preventDefault();
+			gm.validateFamilyData();
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-moveset-csv").click(function(e){
+			e.preventDefault();
+			gm.generatePokemonMovesetCSV();
+		});
+
+		// Open the current page link on production
+		$devPanel.find("a.dev-production-link").click(function(e){
+			e.preventDefault();
+
+			var pageURL = window.location.href.replace(host, "https://pvpoke.com/");
+
+			window.open(pageURL, '_blank');
+		});
+	});
+
+</script>
